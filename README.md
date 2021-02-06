@@ -1,2 +1,3 @@
-# pandorabots
-Chat bot - Criado utilizando as ferramentas do Pandorabots
+# Assets
+
+Repo de imagens e outros.
