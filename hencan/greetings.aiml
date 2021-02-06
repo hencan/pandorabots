@@ -3,12 +3,18 @@
 	  <category>
       <pattern><set>greetings</set></pattern>
       <template>
-          <random>
-              <li>Oie</li>
-              <li>Olá</li>
-              <li>Opa</li>
-              <li>🖖 Vida longa e próspera</li>
-          </random>
+          <think><set name="salutation"><star/></set></think>
+          <condition name="salutation">
+                <li value="vida longa e prospera">🖖 Vida longa e próspera</li>
+                <li value="vida longa e próspera">🖖 Vida longa e próspera</li>
+                <li>
+                    <random>
+                        <li>Oie</li>
+                        <li>Olá</li>
+                        <li>Opa</li>
+                    </random>
+                </li>
+          </condition>
           <condition name="user_name">
               <li value="unknown">
                 <random>
@@ -18,7 +24,7 @@
                     <li>! Pode me dizer o seu nome?</li>
                 </random>
               </li>
-              <li> <get name="user_name"/>! Como posso ajudar?</li>
+              <li><get name="user_name"/>! Como posso ajudar?</li>
               
           </condition>
           </template>
@@ -74,26 +80,26 @@
       <pattern>Sou *</pattern>
       <template><srai>Me chamo <star/></srai></template>
   </category>
-  <category>
-      <that> Como é o seu nome</that>
-      <pattern>*</pattern>
-      <template><srai>Me chamo <star/></srai></template>
-  </category>
-  <category>
-      <that> Como você se chama</that>
-      <pattern>*</pattern>
-      <template><srai>Me chamo <star/></srai></template>
-  </category>
-  <category>
-      <that> Como posso te chamar</that>
-      <pattern>*</pattern>
-      <template><srai>Me chamo <star/></srai></template>
-  </category>
-  <category>
-      <that> Pode me dizer o seu nome</that>
-      <pattern>*</pattern>
-      <template><srai>Me chamo <star/></srai></template>
-  </category>
+  <!--<category>-->
+  <!--    <that> Como é o seu nome</that>-->
+  <!--    <pattern>*</pattern>-->
+  <!--    <template><srai>Me chamo <star/></srai></template>-->
+  <!--</category>-->
+  <!--<category>-->
+  <!--    <that> Como você se chama</that>-->
+  <!--    <pattern>*</pattern>-->
+  <!--    <template><srai>Me chamo <star/></srai></template>-->
+  <!--</category>-->
+  <!--<category>-->
+  <!--    <that> Como posso te chamar</that>-->
+  <!--    <pattern>*</pattern>-->
+  <!--    <template><srai>Me chamo <star/></srai></template>-->
+  <!--</category>-->
+  <!--<category>-->
+  <!--    <that> Pode me dizer o seu nome</that>-->
+  <!--    <pattern>*</pattern>-->
+  <!--    <template><srai>Me chamo <star/></srai></template>-->
+  <!--</category>-->
   
   
   <category>
@@ -197,13 +203,12 @@
               </li>
               <li>
                   <condition name="goodbye">
-                     <li value="vida longa e prospera">🖖 Vida longa e próspera<break/>👋</li>
-                     <li value="vida longa e próspera">🖖 Vida longa e próspera<break/>👋</li>
                     <li>
                         <random>
                             <li>Obrigado <formal><get name="user_name"/></formal>, volte sempre!<break/>👋</li>
                             <li>Até logo <formal><get name="user_name"/></formal>.<break/>👋</li>
                             <li>Tchau <formal><get name="user_name"/></formal>, volte sempre!<break/>👋</li>
+                            <li>🖖 Vida longa e próspera<break/>👋</li>
                         </random>
                     </li>
                   </condition>
