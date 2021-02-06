@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<aiml version="2.0">
+	
+	<category>
+	    <pattern>qual a data de hoje</pattern>
+	    <template>Hoje é <date locale="pt_BR" timezone="-3"/></template>
+    </category>
+    <category>
+        <pattern>hoje</pattern>
+        <template><srai>qual a data de hoje</srai></template>
+    </category>
+    <category>
+        <pattern>data de hoje</pattern>
+        <template><srai>qual a data de hoje</srai></template>
+    </category>
+    
+    <category>
+	    <pattern>qual dia é hoje</pattern>
+	    <template>Hoje é <date locale="pt_BR" timezone="-3" format="%A"/></template>
+    </category>
+    <category>
+        <pattern>qual dia e hoje</pattern>
+        <template><srai>qual dia é hoje</srai></template>
+    </category>
+    <category>
+        <pattern>que dia é hoje</pattern>
+        <template><srai>qual dia é hoje</srai></template>
+    </category>
+    <category>
+        <pattern>que dia e hoje</pattern>
+        <template><srai>qual dia é hoje</srai></template>
+    </category>
+    
+	
+</aiml>

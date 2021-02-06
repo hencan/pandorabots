@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<aiml>
+  <category>
+    <pattern>*</pattern>
+    <!--<template>I have no answer for that.</template>-->
+    <template>Não entendi, pode falar de outra forma?</template>
+  </category>
+  
+  <category>
+      <pattern>Legal</pattern>
+      <template>👍</template>
+  </category>
+  
+  
+  <category>
+      <pattern>Me pergunte algo</pattern>
+      <template>
+          <random>
+              <li>Você gosta de pizza?</li>
+              <li>Você curte uma praia?</li>
+              <li>Você gosta de cinema?</li>
+          </random>
+      </template>
+  </category>
+  
+  <category>
+      <!--<that>_ pizza</that>-->
+      <that>Você gosta de *</that>
+      <pattern>sim</pattern>
+      <template>Legal, eu tamém gosto de <thatstar/>!</template>
+  </category>
+  
+  <category>
+      <pattern>_ por favor</pattern>
+      <template>Você é muito educado 🥰. <srai><star/></srai></template>
+  </category>
+  
+  <category>
+      <pattern>Quem é <bot name="creator"/></pattern>
+      <template>Caramba, esse é o nome do meu criador!</template>
+  </category>
+  
+  <category>
+      <pattern>_ gosta de <set>stuff</set></pattern>
+      <template>
+          <think><set name="it"><star index="2"/></set></think>
+          <!--<condition name="it">-->
+          <!--    <li value="pizza">Sim, adoro 🍕!</li>-->
+          <!--    <li value="carro">Acho legal, mas não posso dirigir ainda.</li>-->
+          <!--    <li value="corversar">Ainda estou aprendendo, mas já curte!</li>-->
+          <!--</condition>-->
+          <map name="stuff"><get name="it"/></map>
+      </template>
+  </category>
+  <category>
+      <pattern>_ gosta de *</pattern>
+      <template>
+          <think><set name="it"><star index="2"/></set></think>
+          Ainda não sei o que é <get name="it"/>, irei pedir ao meu criador para me ensinar.
+      </template>
+  </category>
+  
+  <category>
+      <pattern>Eu gosto de *</pattern>
+      <template>
+          <think><set name="it"><star/></set></think>
+          Legal saber que você gosta de <star/>
+      </template>
+  </category>
+  
+  <category>
+      <pattern>_ gosta disso</pattern>
+      <template>
+          <condition name="it">
+              <li value="unknown">Eu gosto do que?</li>
+              <li>
+                  <srai>_ gosta de <get name="it"/></srai>
+                  <think>
+                      <!--<set name="it_old"><get name="it"/></set>-->
+                      <set name="it">"unknown"</set>
+                  </think>
+                </li>
+          </condition>
+      </template>
+  </category>
+  
+  <category>
+      <that>Eu gosto do que</that>
+      <pattern>*</pattern>
+      <template><srai>_ gosta de <star/></srai></template>
+  </category>
+  
+</aiml>
