@@ -1,5 +1,7 @@
 # Hencan Bot
 
+![](media/pandorabots.gif)
+
 Este bot foi criado unicamente para fins acadêmicos e participação de um desafio.
 
 ## Instalação
