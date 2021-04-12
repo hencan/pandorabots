@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<aiml version="2.0">
+	
+	<category>
+	    <!--<pattern>Conte de <set>number</set> a <set>number</set></pattern>-->
+	    <pattern>Conte <set>prepositions</set> <set>countnumbers</set> <set>prepositions</set> <set>countnumbers</set></pattern>
+	    <template>
+	        <think>
+	            <set name="count_initial"><star index="2"/></set>
+	            <set name="count_target"><star index="4"/></set>
+	        </think>
+	        <get name="count_initial"/>
+	        <srai>COUNTLOOP</srai>
+	    </template>
+    </category>
+    
+    <category>
+        <pattern>Conte <set>prepositions</set> <set>countnumbers</set></pattern>
+        <template>
+            <think>
+	            <set name="count_initial">0</set>
+	            <set name="count_target"><star index="2"/></set>
+	        </think>
+	        <get name="count_initial"/>
+	        <srai>COUNTLOOP</srai>
+        </template>
+    </category>
+
+    <category>
+        <pattern>COUNTLOOP</pattern>
+        <!--Estratégia de Loop 1-->
+        <!--<template>-->
+        <!--    , <set name="count_initial"><map name="successor"><get name="count_initial"/></map></set>-->
+        <!--    <condition name="count_initial">-->
+        <!--        <li><value><get name="count_target"/></value></li>-->
+        <!--        <li>, <set name="count_initial"><map name="successor"><get name="count_initial"/></map></set><loop/></li>-->
+        <!--        <li><srai>COUNTLOOP</srai></li>-->
+        <!--    </condition>-->
+        <!--</template>-->
+        
+        <!--Estratégia de Loop 2-->
+        <template>
+            <condition name="count_initial">
+                <li><value><get name="count_target"/></value></li>
+                <li>, <set name="count_initial"><map name="successor"><get name="count_initial"/></map></set><loop/></li>
+            </condition>
+        </template>
+    </category>
+    
+    <category>
+      <pattern>Role um dado</pattern>
+      <template>
+          <think>
+              <set name="dice">
+                  <random>
+                      <li>1</li>
+                      <li>2</li>
+                      <li>3</li>
+                      <li>4</li>
+                      <li>5</li>
+                      <li>6</li>
+                  </random>
+              </set>
+          </think>
+          Apareceu o número <get name="dice"/>
+      </template>
+  </category>
+
+    </aiml>

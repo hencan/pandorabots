@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<aiml version="2.0">
+	
+<category>
+    <pattern><set>help</set></pattern>
+    <template>
+        Comandos aceitos:<split/>
+        
+        <carousel>
+            <card>
+                <image>https://hencan.github.io/pandorabots/chat-help.png</image>
+                <title>Saudações aceitas</title>
+                <subtitle>Oi, olá, tudo bem... Teste nos botões abaixo:</subtitle>
+                <button>
+                    <text>Oi</text>
+                    <postback></postback>
+                </button>
+                <button>
+                    <text>Olá</text>
+                    <postback></postback>
+                </button>
+                <button>
+                    <text>Tudo bem</text>
+                    <postback></postback>
+                </button>
+                <!--<button>-->
+                <!--    <text>Tudo bom</text>-->
+                <!--    <postback></postback>-->
+                <!--</button>-->
+                <!--<button>-->
+                <!--    <text>Bom dia</text>-->
+                <!--    <postback></postback>-->
+                <!--</button>-->
+                <!--<button>-->
+                <!--    <text>Boa tarde</text>-->
+                <!--    <postback></postback>-->
+                <!--</button>-->
+                <!--<button>-->
+                <!--    <text>Boa noite</text>-->
+                <!--    <postback></postback>-->
+                <!--</button>-->
+                <!--<button>-->
+                <!--    <text>Como vai</text>-->
+                <!--    <postback></postback>-->
+                <!--</button>-->
+            </card>
+            
+            <card>
+                <image>https://hencan.github.io/pandorabots/chat-help.png</image>
+                <title>Contagem de números</title>
+                <subtitle>Utilize "conte até 10" ou "conte de * até *". Teste nos botões:</subtitle>
+                <button>
+                    <text>Conte de 3 a 10</text>
+                    <postback></postback>
+                </button>
+                <button>
+                    <text>Conte até 5</text>
+                    <postback></postback>
+                </button>
+            </card>
+            
+            <card>
+                <image>https://hencan.github.io/pandorabots/chat-help.png</image>
+                <title>Sobre datas</title>
+                <subtitle>Utilize "qual a data de hoje" ou "qual dia é hoje". Teste nos botões:</subtitle>
+                <button>
+                    <text>qual a data de hoje</text>
+                    <postback></postback>
+                </button>
+                <button>
+                    <text>qual dia é hoje</text>
+                    <postback></postback>
+                </button>
+            </card>
+        </carousel>
+        
+        
+    </template>
+</category>
+
+
+</aiml>

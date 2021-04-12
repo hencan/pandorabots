@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<aiml version="2.0">
+    
+<category>
+    <pattern>Contar piadas</pattern>
+    <template>
+        <think><set name="topic">piadas</set></think>
+        Ok, vamos conversar! 😁
+    </template>
+</category>
+<category>
+    <pattern>contar piada</pattern>
+    <template><srai>contar piadas</srai></template>
+</category>
+
+<topic name="piadas">
+    <category>
+        <pattern>*</pattern>
+        <template>Não entendi, pode falar de outra forma?</template>
+    </category>    
+    
+    <category>
+        <pattern>Me conta uma piada</pattern>
+        <template>
+            <random>
+                <li>
+                    O que o livro de Matemática falou para o livro de História?<break/>
+                    Não me venha com história que eu já estou cheio de problemas!
+                </li>
+                <li>
+                    Por que o Super Mário foi ao psicólogo?<break/>
+                    Porque ele estava passando por uma fase difícil.
+                </li>
+                <li>
+                    A professora pede para o aluno: “Fale dois pronomes”.<break/>
+                    E ele responde: “Quem? Eu?”
+                </li>
+                <li>
+                    O que um cromossomo falou pro outro?<break/>
+                    "Cromo somos bonitos!"
+                </li>
+                <li>
+                    Qual é o conselho mais matemático?<break/>
+                    É o pi-taco.
+                </li>
+            </random>
+        </template>
+    </category>
+    
+    <category>
+        <pattern>Me conta uma</pattern>
+        <template><srai>Me conta uma piada</srai></template>
+    </category>
+    <category>
+        <pattern>Conta uma</pattern>
+        <template><srai>Me conta uma piada</srai></template>
+    </category>
+    <category>
+        <pattern>Conta outra</pattern>
+        <template><srai>Me conta uma piada</srai></template>
+    </category>
+    <category>
+        <pattern>Sua vez</pattern>
+        <template><srai>Me conta uma piada</srai></template>
+    </category>
+    
+    <category>
+        <pattern>sair</pattern>
+        <template>
+            <think><set name="topic"></set></think>
+            Espero que tenha gostado das piadas! 😅
+        </template>
+    </category>
+</topic>
+
+</aiml>

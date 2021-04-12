@@ -1,0 +1,220 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<aiml version="2.0">
+	  <category>
+      <pattern><set>greetings</set></pattern>
+      <template>
+          <think><set name="salutation"><star/></set></think>
+          <condition name="salutation">
+                <li value="vida longa e prospera">🖖 Vida longa e próspera</li>
+                <li value="vida longa e próspera">🖖 Vida longa e próspera</li>
+                <li>
+                    <random>
+                        <li>Oie</li>
+                        <li>Olá</li>
+                        <li>Opa</li>
+                    </random>
+                </li>
+          </condition>
+          <condition name="user_name">
+              <li value="unknown">
+                <random>
+                    <li>! Como é o seu nome?</li>
+                    <li>! Como você se chama?</li>
+                    <li>! Como posso te chamar?</li>
+                    <li>! Pode me dizer o seu nome?</li>
+                </random>
+              </li>
+              <li><get name="user_name"/>! Como posso ajudar?</li>
+              
+          </condition>
+          </template>
+  </category>
+  <!--<category>-->
+  <!--    <pattern>Oie</pattern>-->
+  <!--    <template><srai>Oi</srai></template>-->
+  <!--</category>-->
+  <!--<category>-->
+  <!--    <pattern>Olá</pattern>-->
+  <!--    <template><srai>Oi</srai></template>-->
+  <!--</category>-->
+  <!--<category>-->
+  <!--    <pattern>Ola</pattern>-->
+  <!--    <template><srai>Oi</srai></template>-->
+  <!--</category>-->
+  <!--<category>-->
+  <!--    <pattern>Bom dia</pattern>-->
+  <!--    <template><srai>Oi</srai></template>-->
+  <!--</category>-->
+  <!--<category>-->
+  <!--    <pattern>Boa tarde</pattern>-->
+  <!--    <template><srai>Oi</srai></template>-->
+  <!--</category>-->
+  <!--<category>-->
+  <!--    <pattern>Boa noite</pattern>-->
+  <!--    <template><srai>Oi</srai></template>-->
+  <!--</category>-->
+  
+  <category>
+      <pattern>Me chamo *</pattern>
+      <template>
+          <random>
+              <li>Fala ai </li>
+              <li>Bem vinde </li>
+              <li>Olá </li>
+              <li>Oie </li>
+          </random>
+          <formal><set name="user_name"><star index="1"/></set></formal>!
+        <condition name="user_name">
+            <li value="Henrique"> Você tem o mesmo primeiro nome do meu criador! 😀</li>
+            <li value="Henrique Candolo"> Espera, é você criador?</li>
+            <li> Como posso te ajudar?</li>
+        </condition>
+      </template>
+  </category>
+  
+  <category>
+      <pattern>Meu nome é *</pattern>
+      <template><srai>Me chamo <star/></srai></template>
+  </category>
+  <category>
+      <pattern>Sou *</pattern>
+      <template><srai>Me chamo <star/></srai></template>
+  </category>
+  <!--<category>-->
+  <!--    <that> Como é o seu nome</that>-->
+  <!--    <pattern>*</pattern>-->
+  <!--    <template><srai>Me chamo <star/></srai></template>-->
+  <!--</category>-->
+  <!--<category>-->
+  <!--    <that> Como você se chama</that>-->
+  <!--    <pattern>*</pattern>-->
+  <!--    <template><srai>Me chamo <star/></srai></template>-->
+  <!--</category>-->
+  <!--<category>-->
+  <!--    <that> Como posso te chamar</that>-->
+  <!--    <pattern>*</pattern>-->
+  <!--    <template><srai>Me chamo <star/></srai></template>-->
+  <!--</category>-->
+  <!--<category>-->
+  <!--    <that> Pode me dizer o seu nome</that>-->
+  <!--    <pattern>*</pattern>-->
+  <!--    <template><srai>Me chamo <star/></srai></template>-->
+  <!--</category>-->
+  
+  
+  <category>
+      <pattern>Qual o meu nome</pattern>
+      <template>
+          <condition name="user_name">
+              <li value="unknown">Você ainda não me disse o seu nome.</li>
+              <li>
+                  <random>
+                      <li><formal><get name="user_name"/></formal></li>
+                      <li><formal><get name="user_name"/></formal></li>
+                      <li><formal><get name="user_name"/></formal></li>
+                      <li>Seu nome é <formal><get name="user_name"/></formal>.</li>
+                      <li>Seu nome é <formal><get name="user_name"/></formal>.</li>
+                      <li>Tá esquecido hein <formal><get name="user_name"/></formal>.</li>
+                  </random>
+                </li>
+          </condition>
+          </template>
+  </category>
+  <category>
+      <pattern>Meu nome</pattern>
+      <template><srai>Qual o meu nome</srai></template>
+  </category>
+  <category>
+      <pattern>Como me chamo</pattern>
+      <template><srai>Qual o meu nome</srai></template>
+  </category>
+  <category>
+      <pattern>Quem sou eu</pattern>
+      <template><srai>Qual o meu nome</srai></template>
+  </category>
+  
+  <category>
+      <pattern>Qual o seu nome</pattern>
+      <template>
+          <random>
+              <li>Me chamo <bot name="name"></bot></li>
+              <li>Me chamo <bot name="name"></bot></li>
+              <li>Sou o <bot name="name"></bot></li>
+              <li>Sou o <bot name="name"></bot></li>
+          </random>
+      </template>
+  </category>
+  <category>
+      <pattern>Seu nome</pattern>
+      <template><srai>Qual o seu nome</srai></template>
+  </category>
+  <category>
+      <pattern>Como você se chama</pattern>
+      <template><srai>Qual o seu nome</srai></template>
+  </category>
+  <category>
+      <pattern>Como voce se chama</pattern>
+      <template><srai>Qual o seu nome</srai></template>
+  </category>
+  <category>
+      <pattern>Como vc se chama</pattern>
+      <template><srai>Qual o seu nome</srai></template>
+  </category>
+  <category>
+      <pattern>Como é seu nome</pattern>
+      <template><srai>Qual o seu nome</srai></template>
+  </category>
+  <category>
+      <pattern>Como e seu nome</pattern>
+      <template><srai>Qual o seu nome</srai></template>
+  </category>
+  <category>
+      <pattern>Quem é você</pattern>
+      <template><srai>Qual o seu nome</srai></template>
+  </category>
+  <category>
+      <pattern>Quem é voce</pattern>
+      <template><srai>Qual o seu nome</srai></template>
+  </category>
+  <category>
+      <pattern>Quem é vc</pattern>
+      <template><srai>Qual o seu nome</srai></template>
+  </category>
+  <category>
+      <pattern>Quem e voce</pattern>
+      <template><srai>Qual o seu nome</srai></template>
+  </category>
+  <category>
+      <pattern>Quem e vc</pattern>
+      <template><srai>Qual o seu nome</srai></template>
+  </category>
+  
+  <category>
+      <pattern><set>goodbyes</set></pattern>
+      <template>
+          <think><set name="goodbye"><star/></set></think>
+          <condition name="user_name">
+              <li value="unknown">
+                <random>
+                    <li>Obrigado, volte sempre!<break/>👋</li>
+                    <li>Até logo.<break/>👋</li>
+                    <li>Tchau, volte sempre!<break/>👋</li>
+                </random>
+              </li>
+              <li>
+                  <condition name="goodbye">
+                    <li>
+                        <random>
+                            <li>Obrigado <formal><get name="user_name"/></formal>, volte sempre!<break/>👋</li>
+                            <li>Até logo <formal><get name="user_name"/></formal>.<break/>👋</li>
+                            <li>Tchau <formal><get name="user_name"/></formal>, volte sempre!<break/>👋</li>
+                            <li>🖖 Vida longa e próspera<break/>👋</li>
+                        </random>
+                    </li>
+                  </condition>
+              </li>
+          </condition>
+      </template>
+  </category>
+
+</aiml>
