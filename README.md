@@ -13,6 +13,12 @@ Conheça o bot:
 
 ## Branch develop
 
+![](media/pandorabots.gif)
+
+Bot funcional em Rails 6 e gem ProgramR.
+
+Live: [link to heroku](https://chatbotrails.herokuapp.com)
+
 Contains the bot files. [access develop repo](https://github.com/hencan/pandorabots/tree/develop)
 
 ## Branch assets
