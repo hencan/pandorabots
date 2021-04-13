@@ -1,0 +1,87 @@
+<div class="home overflow-hidden">
+
+  <div class="card shadow-lg">
+    <div class="card-header d-flex flex-row bg-white">
+      <%= video_tag "typing.mp4", :size => "100x100", :id => "myvideo", :class => "me-2" %>
+      <div class="d-flex flex-column my-auto">
+        <div class="fs-5 fw-bold">Hencanbot</div>
+        <div class="fs-6">Estou em teste. Vamos conversar?</div>
+      </div>
+      <a id="btn_close" onclick="open_close()">
+          <svg xmlns="http://www.w3.org/2000/svg" id="btn_down" width="16" height="16" fill="currentColor" class="bi bi-caret-down-fill" viewBox="0 0 16 16">
+            <path d="M7.247 11.14 2.451 5.658C1.885 5.013 2.345 4 3.204 4h9.592a1 1 0 0 1 .753 1.659l-4.796 5.48a1 1 0 0 1-1.506 0z"/>
+          </svg>
+          <svg xmlns="http://www.w3.org/2000/svg" id="btn_up" width="16" height="16" fill="currentColor" class="bi bi-caret-up-fill" viewBox="0 0 16 16">
+            <path d="m7.247 4.86-4.796 5.481c-.566.647-.106 1.659.753 1.659h9.592a1 1 0 0 0 .753-1.659l-4.796-5.48a1 1 0 0 0-1.506 0z"/>
+          </svg>
+      </a>
+    </div>
+    <div id="hencan-response" class="card-text d-flex flex-column my-2 px-3 hide"></div>
+    <div class="card-footer bg-white">
+      <div class="mb-2 mx-2">
+        <input id="query" type="text" class="form-control border-0" placeholder="Escreva algo aqui...">
+      </div>
+    </div>
+  </div>
+
+</div>
+
+  
+<script>
+  function intoView() {
+   var div = document.getElementById('hencan-response');
+   $('#hencan-response').animate({
+      scrollTop: div.scrollHeight - div.clientHeight
+   }, 450);
+  }
+
+  function open_close() {
+    if ($("#hencan-response").hasClass("hide")) {
+      $("#btn_down").css("display","block")
+      $("#btn_up").css("display","none")
+      $("#hencan-response").removeClass("hide")
+    } else {
+      $("#btn_down").css("display","none")
+      $("#btn_up").css("display","block")
+      $("#hencan-response").addClass("hide")
+    }
+    
+  }
+
+  function submit_btn() {
+    $.ajax({
+        url: '/ask_hencan',
+        type: 'json',
+        method: 'get',
+        data: { query: $('#query').val() },
+        success: function(data) {
+          if ($("#hencan-response").hasClass("hide")) {
+            $("#btn_down").css("display","block")
+            $("#btn_up").css("display","none")
+            $("#hencan-response").removeClass("hide")
+          }
+          $('#myvideo').trigger('play')
+          $("query").attr("disabled", true)
+          $('#hencan-response').append("<div class='btn btn-primary rounded-pill px-4 ms-auto mt-4'>" + $('#query').val() + "</div>")
+          $('#hencan-response').append('<button class="btn btn-secondary rounded-pill px-4 me-auto mt-4" type="button" disabled><span class="spinner-grow spinner-grow-sm" role="status" aria-hidden="true"></span><span class="visually-hidden">Loading...</span></button>')
+          intoView()
+          setTimeout(function(){
+            $(".btn").last().remove()
+            $('#hencan-response').append("<div class='btn btn-secondary rounded-pill px-4 me-auto mt-4'>" + data['response'] + "</div>")
+            intoView()
+           }, 900)
+          $('#query').val('')
+          $("query").attr("disabled", false)
+        }
+      })
+  }
+
+  $(document).ready(function(){
+    $('#query').on('keypress', function (e) {
+      if (e.key === 'Enter' || e.keyCode == 13) {
+        submit_btn()
+        }
+    })
+  })
+
+</script>
