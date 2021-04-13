@@ -13,7 +13,7 @@ Conheça o bot:
 
 ## Branch develop
 
-![](media/pandorabots.gif)
+![](media/hencanbot.gif)
 
 Bot funcional em Rails 6 e gem ProgramR.
 
